@@ -2,37 +2,48 @@ var drums = document.querySelectorAll(".drum");
 
 var sounds = ["crash.mp3", "kick-bass.mp3", "snare.mp3", "tom-1.mp3", "tom-2.mp3", "tom-3.mp3", "tom-4.mp3"];
 
-drums[0].addEventListener("click", function() {
-  var sound = new Audio("sounds/" + sounds[0])
-  sound.play();
+document.addEventListener("keydown", function(event) {
+  bindSoundToKey(event.key);
 });
 
-drums[1].addEventListener("click", function() {
-  var sound = new Audio("sounds/" + sounds[1])
-  sound.play();
-});
+function bindSoundToKey(key) {
+  switch (key) {
+    case 'w':
+      var crash = new Audio("sounds/crash.mp3")
+      crash.play();
+      break;
+    case 'a':
+      var kick = new Audio("sounds/kick-bass.mp3")
+      kick.play();
+      break;
+    case 's':
+      var snare = new Audio("sounds/snare.mp3")
+      snare.play();
+      break;
+    case 'd':
+      var tom1 = new Audio("sounds/tom-1.mp3")
+      tom1.play();
+      break;
+    case 'j':
+      var tom2 = new Audio("sounds/tom-2.mp3")
+      tom2.play();
+      break;
+    case 'k':
+      var tom3 = new Audio("sounds/tom-3.mp3")
+      tom3.play();
+      break;
+    case 'l':
+      var tom4 = new Audio("sounds/tom-4.mp3")
+      tom4.play();
+      break;
+    default:
+      console.log(key);
+  }
+}
 
-drums[2].addEventListener("click", function() {
-  var sound = new Audio("sounds/" + sounds[2])
-  sound.play();
-});
-
-drums[3].addEventListener("click", function() {
-  var sound = new Audio("sounds/" + sounds[3])
-  sound.play();
-});
-
-drums[4].addEventListener("click", function() {
-  var sound = new Audio("sounds/" + sounds[4])
-  sound.play();
-});
-
-drums[5].addEventListener("click", function() {
-  var sound = new Audio("sounds/" + sounds[5])
-  sound.play();
-});
-
-drums[6].addEventListener("click", function() {
-  var sound = new Audio("sounds/" + sounds[6])
-  sound.play();
-});
+for (var i = 0; i < drums.length; i++) {
+  drums[i].addEventListener("click", function() {
+    var key = this.innerHTML;
+    bindSoundToKey(key);
+  });
+}
