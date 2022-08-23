@@ -4,7 +4,26 @@ var sounds = ["crash.mp3", "kick-bass.mp3", "snare.mp3", "tom-1.mp3", "tom-2.mp3
 
 document.addEventListener("keydown", function(event) {
   bindSoundToKey(event.key);
+  animate(event.key);
 });
+
+for (var i = 0; i < drums.length; i++) {
+  drums[i].addEventListener("click", function() {
+    var key = this.innerHTML;
+    bindSoundToKey(key);
+    animate(key);
+  });
+}
+
+function animate(key) {
+  var selected = document.querySelector("."+key)
+  if(selected !== null) {
+    selected.classList.add("pressed");
+    setTimeout(function() {
+      selected.classList.remove("pressed");
+    }, 100);
+  }
+}
 
 function bindSoundToKey(key) {
   switch (key) {
@@ -39,11 +58,4 @@ function bindSoundToKey(key) {
     default:
       console.log(key);
   }
-}
-
-for (var i = 0; i < drums.length; i++) {
-  drums[i].addEventListener("click", function() {
-    var key = this.innerHTML;
-    bindSoundToKey(key);
-  });
 }
