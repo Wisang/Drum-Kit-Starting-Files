@@ -3,6 +3,7 @@ var drums = document.querySelectorAll(".drum");
 var sounds = ["crash.mp3", "kick-bass.mp3", "snare.mp3", "tom-1.mp3", "tom-2.mp3", "tom-3.mp3", "tom-4.mp3"];
 
 document.addEventListener("keydown", function(event) {
+  event.preventDefault();
   bindSoundToKey(event.key);
   animate(event.key);
 });
