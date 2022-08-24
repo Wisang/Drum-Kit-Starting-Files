@@ -1,6 +1,6 @@
 var drums = document.querySelectorAll(".drum");
 
-var sounds = ["crash.mp3", "kick-bass.mp3", "snare.mp3", "tom-1.mp3", "tom-2.mp3", "tom-3.mp3", "tom-4.mp3"];
+let currentAudio = new Audio();
 
 document.addEventListener("keydown", function(event) {
   event.preventDefault();
@@ -23,14 +23,15 @@ function animate(key) {
     selected.classList.add("pressed");
     setTimeout(function() {
       selected.classList.remove("pressed");
-    }, 1);
+    }, 10);
   }
 }
 
-function stopThenPlay(obj) {
-  obj.pause();
-  obj.currentTime = 0;
-  obj.play();
+function stopThenPlay(newAudio) {
+  currentAudio.pause();
+  currentAudio.currentTime = 0;
+  currentAudio = new Audio(newAudio);
+  currentAudio.play();
 }
 
 function bindSoundToKey(key) {
