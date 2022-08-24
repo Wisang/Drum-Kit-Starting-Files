@@ -23,7 +23,7 @@ function animate(key) {
     selected.classList.add("pressed");
     setTimeout(function() {
       selected.classList.remove("pressed");
-    }, 100);
+    }, 1);
   }
 }
 
