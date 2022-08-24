@@ -9,7 +9,8 @@ document.addEventListener("keydown", function(event) {
 });
 
 for (var i = 0; i < drums.length; i++) {
-  drums[i].addEventListener("click", function() {
+  drums[i].addEventListener("click", function(event) {
+    event.preventDefault();
     var key = this.innerHTML;
     bindSoundToKey(key);
     animate(key);
