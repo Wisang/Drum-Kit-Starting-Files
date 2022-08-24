@@ -1,6 +1,6 @@
 var drums = document.querySelectorAll(".drum");
 
-let currentAudio = new Audio();
+// let currentAudio = new Audio();
 
 document.addEventListener("keydown", function(event) {
   event.preventDefault();
@@ -28,10 +28,10 @@ function animate(key) {
 }
 
 function stopThenPlay(newAudio) {
-  currentAudio.pause();
-  currentAudio.currentTime = 0;
-  currentAudio = new Audio(newAudio);
-  currentAudio.play();
+  // currentAudio.pause();
+  // currentAudio.currentTime = 0;
+  // currentAudio = new Audio(newAudio);
+  newAudio.play();
 }
 
 function bindSoundToKey(key) {
